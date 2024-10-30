@@ -62,9 +62,17 @@ class _CalculatorViewState extends State<CalculatorView> {
       navigationBar: Utils.navigationBar,
       child: SafeArea(
         child: SingleChildScrollView(
-          child: CupertinoListSection(
-            header: const Text('Emissores'),
-            children: emissorsList,
+          child: Column(
+            children: <Widget>[
+              /// Actions
+
+
+              /// Emissors List
+              CupertinoListSection(
+                header: const Text('Emissores'),
+                children: emissorsList,
+              ),
+            ],
           ),
         ),
       ),

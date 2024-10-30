@@ -1,4 +1,5 @@
 import 'package:calculadoraco2/models/abstract_emissor_model.dart';
+import 'package:calculadoraco2/utils/config.dart';
 import 'package:flutter/cupertino.dart';
 
 ///
@@ -6,9 +7,8 @@ import 'package:flutter/cupertino.dart';
 ///
 class ElectricityUsage with AbstractEmissor {
   double billValue = 0;
-  final double kwhPrice =
-      0.74; // Brazil Average Price - Source: https://www.ngsolar.com.br/single-post/preco-kwh-cpfl#:~:text=A%20tarifa%20teve%20um%20aumento,%24%200%2C74%20por%20KWh.
-  final double emissionFactor = 0.1; // Kg of CO2 per KWh
+  final double kwhPrice = Config().electricityKwhPrice;
+  final double emissionFactor = Config().electricityEF;
 
   ///
   ///
@@ -27,7 +27,7 @@ class ElectricityUsage with AbstractEmissor {
   ///
   ///
   @override
-  String get name => 'Consumo de Energia Elétrica';
+  String get name => 'Energia Elétrica Residencial';
 
   ///
   ///
