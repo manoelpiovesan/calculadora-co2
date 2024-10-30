@@ -1,5 +1,4 @@
 import 'package:calculadoraco2/views/calculator_view.dart';
-import 'package:calculadoraco2/views/home.dart';
 import 'package:flutter/cupertino.dart';
 
 ///

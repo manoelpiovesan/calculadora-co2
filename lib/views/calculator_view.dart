@@ -37,11 +37,17 @@ class _CalculatorViewState extends State<CalculatorView> {
       GasolineCar(),
       EthanolCar(),
       ElectricityUsage(),
+      GasolineCar(),
+      EthanolCar(),
+      ElectricityUsage(),
     ]);
 
     emissorsList = widget.calculator.emissors
         .map(
           (final AbstractEmissor element) => CupertinoListTile(
+            onTap: () {
+              _showModal(context, element);
+            },
             title: Text(element.name),
             leading: Icon(element.iconData),
             additionalInfo: Text('${element.calculate()} Kg de CO²'),
@@ -66,10 +72,9 @@ class _CalculatorViewState extends State<CalculatorView> {
             children: <Widget>[
               /// Actions
 
-
               /// Emissors List
               CupertinoListSection(
-                header: const Text('Emissores'),
+                header: const Text('Seus Emissores'),
                 children: emissorsList,
               ),
             ],
@@ -78,4 +83,31 @@ class _CalculatorViewState extends State<CalculatorView> {
       ),
     );
   }
+
+  ///
+  ///
+  ///
+  void _showModal(final BuildContext context, final AbstractEmissor element) =>
+      showCupertinoModalPopup<String>(
+        context: context,
+        builder: (final BuildContext context) => CupertinoActionSheet(
+          title: Text(element.name),
+          actions: <Widget>[
+            CupertinoActionSheetAction(
+              isDefaultAction: true,
+              onPressed: () {
+                Navigator.pop(context, 'Editar');
+              },
+              child: const Text('Editar'),
+            ),
+            CupertinoActionSheetAction(
+              isDestructiveAction: true,
+              onPressed: () {
+                Navigator.pop(context, 'Deletar');
+              },
+              child: const Text('Deletar'),
+            ),
+          ],
+        ),
+      );
 }
