@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 ///
 ///
 ///
-class ElectricityUsage with Emissor {
+class ElectricityUsage with AbstractEmissor {
   double billValue = 0;
   final double kwhPrice =
       0.74; // Brazil Average Price - Source: https://www.ngsolar.com.br/single-post/preco-kwh-cpfl#:~:text=A%20tarifa%20teve%20um%20aumento,%24%200%2C74%20por%20KWh.

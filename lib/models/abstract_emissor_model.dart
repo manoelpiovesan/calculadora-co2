@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 ///
 ///
 ///
-mixin Emissor {
+mixin AbstractEmissor {
   ///
   ///
   ///

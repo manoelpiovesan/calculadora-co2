@@ -1,7 +1,7 @@
 import 'package:calculadoraco2/models/abstract_emissor_model.dart';
 
 class Calculator {
-  List<Emissor> emissors = <Emissor>[];
+  List<AbstractEmissor> emissors = <AbstractEmissor>[];
 
   ///
   ///
@@ -26,7 +26,7 @@ class Calculator {
   double getSum() {
     double sum = 0;
 
-    for (final Emissor emissor in emissors) {
+    for (final AbstractEmissor emissor in emissors) {
       sum += emissor.calculate();
     }
 

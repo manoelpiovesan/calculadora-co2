@@ -33,7 +33,7 @@ class _CalculatorViewState extends State<CalculatorView> {
   @override
   void initState() {
     // TODO(2): Remove this mock;
-    widget.calculator.emissors.addAll(<Emissor>[
+    widget.calculator.emissors.addAll(<AbstractEmissor>[
       GasolineCar(),
       EthanolCar(),
       ElectricityUsage(),
@@ -41,7 +41,7 @@ class _CalculatorViewState extends State<CalculatorView> {
 
     emissorsList = widget.calculator.emissors
         .map(
-          (final Emissor element) => CupertinoListTile(
+          (final AbstractEmissor element) => CupertinoListTile(
             title: Text(element.name),
             leading: Icon(element.iconData),
             additionalInfo: Text('${element.calculate()} Kg de CO²'),

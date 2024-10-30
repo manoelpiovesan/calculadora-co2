@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 ///
 ///
 ///
-class GasolineCar with Emissor {
+class GasolineCar with AbstractEmissor {
   int quantity = 0;
   int kmPerLiter = 0;
   int monthKm = 0;
