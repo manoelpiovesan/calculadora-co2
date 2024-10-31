@@ -39,7 +39,7 @@ class _EditScreenState extends State<EditScreen> {
             children: <Widget>[
               CupertinoListTile(
                 leading: const Icon(Icons.energy_savings_leaf),
-                title: const Text('Selecionar Emissão'),
+                title: const Text('Selecionar Tipo de Emissão'),
                 trailing: const CupertinoListTileChevron(),
                 onTap: () => _showModal(context),
               ),

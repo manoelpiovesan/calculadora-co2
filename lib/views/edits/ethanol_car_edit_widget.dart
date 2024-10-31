@@ -42,7 +42,7 @@ class _EthanolCarEditState extends State<EthanolCarEdit> {
   @override
   Widget build(final BuildContext context) {
     return CupertinoFormSection(
-      header: const Text('Adicionar carro movido à etanol.'),
+      header: Text('Adicionar ${model.name}.'),
       children: <Widget>[
         /// Km/L
         CupertinoTextFormFieldRow(
@@ -74,8 +74,8 @@ class _EthanolCarEditState extends State<EthanolCarEdit> {
                 onPressed: () => _saveOrUpdate(model, widget.received),
                 child: Text(
                   widget.received != null
-                      ? 'Salvar Carro Etanol'
-                      : 'Adicionar Carro Etanol',
+                      ? 'Salvar ${model.name}'
+                      : 'Adicionar ${model.name}',
                 ),
               ),
             ],

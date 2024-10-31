@@ -30,26 +30,6 @@ class _CalculatorViewState extends State<CalculatorView> {
   ///
   ///
   @override
-  void initState() {
-    // TODO(2): Remove this mock;
-    // widget.calculator.emissors.addAll(<AbstractEmissor>[
-    //   GasolineCar()
-    //     ..kmPerLiter = 10
-    //     ..monthKm = 4000,
-    //   EthanolCar()
-    //     ..kmPerLiter = 8
-    //     ..monthKm = 2000
-    //     ..quantity = 1,
-    //   ElectricityUsage()..billValue = 130,
-    // ]);
-
-    super.initState();
-  }
-
-  ///
-  ///
-  ///
-  @override
   Widget build(final BuildContext context) {
     emissorsList = widget.calculator.emissors
         .map(
@@ -64,7 +44,17 @@ class _CalculatorViewState extends State<CalculatorView> {
             subtitle: Text(element.description),
           ),
         )
-        .toList();
+        .toList()
+      ..add(
+        CupertinoListTile(
+          leading: const Icon(Icons.energy_savings_leaf),
+          title: const Text('Total'),
+          additionalInfo: const Text('Aproximadamente'),
+          trailing: Text('${widget.calculator.sum.toStringAsFixed(2)}'
+              ' Kg de CO²'),
+        ),
+      );
+
     return CupertinoPageScaffold(
       navigationBar: Utils.navigationBar,
       child: SafeArea(
@@ -73,30 +63,47 @@ class _CalculatorViewState extends State<CalculatorView> {
             children: <Widget>[
               /// Actions
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  /// Settings
+                  CupertinoButton(
+                    onPressed: () => _navigateToAddScreen,
+                    child: const Text('Configurações'),
+                  ),
+
                   /// Add button
                   CupertinoButton(
                     onPressed: () => _navigateToAddScreen,
-                    child: const Text('Adicionar'),
+                    child: const Text('Adicionar atividade'),
                   ),
                 ],
               ),
 
               /// Emissors List
-              CupertinoListSection(
-                header: const Text('Seus Emissores'),
-                children: <Widget>[
-                  ...emissorsList,
-                  CupertinoListTile(
-                    leading: const Icon(Icons.energy_savings_leaf),
-                    title: const Text('Total'),
-                    additionalInfo: const Text('Aproximadamente'),
-                    trailing: Text('${widget.calculator.sum.toStringAsFixed(2)}'
-                        ' Kg de CO²'),
+              if (widget.calculator.emissors.isNotEmpty)
+                CupertinoListSection(
+                  header: const Text('Suas emissões'),
+                  children: emissorsList,
+                ),
+
+              /// No Data Yet
+              if (widget.calculator.emissors.isEmpty)
+                const Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.edit_off_sharp),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Text(
+                        'Sem dados até o momento. \n Adicione novas atividades'
+                        ' para ver sua pegada de carbono.',
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                )
             ],
           ),
         ),
