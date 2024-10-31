@@ -1,3 +1,4 @@
+import 'package:calculadoraco2/controllers/calculator_controller.dart';
 import 'package:calculadoraco2/models/abstract_emissor_model.dart';
 import 'package:calculadoraco2/models/calculator_model.dart';
 import 'package:calculadoraco2/utils/utils.dart';
@@ -34,8 +35,9 @@ class _CalculatorViewState extends State<CalculatorView> {
     emissorsList = widget.calculator.emissors
         .map(
           (final AbstractEmissor element) => CupertinoListTile(
-            onTap: () {
-              _showModal(context, element);
+            onTap: () async {
+              await _showModal(context, element);
+              setState(() {});
             },
             title: Text(element.name),
             leading: Icon(element.iconData),
@@ -56,7 +58,8 @@ class _CalculatorViewState extends State<CalculatorView> {
       );
 
     return CupertinoPageScaffold(
-      navigationBar: Utils.navigationBar,
+      backgroundColor: CupertinoColors.systemGroupedBackground,
+      navigationBar: Utils.navigationBar(),
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -88,9 +91,10 @@ class _CalculatorViewState extends State<CalculatorView> {
 
               /// No Data Yet
               if (widget.calculator.emissors.isEmpty)
-                const Center(
+                const SizedBox(
+                  height: 500,
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(Icons.edit_off_sharp),
                       SizedBox(
@@ -114,7 +118,7 @@ class _CalculatorViewState extends State<CalculatorView> {
   ///
   ///
   ///
-  void _showModal(final BuildContext context, final AbstractEmissor element) =>
+  Future<void> _showModal(final BuildContext context, final AbstractEmissor element) =>
       showCupertinoModalPopup<String>(
         context: context,
         builder: (final BuildContext context) => CupertinoActionSheet(
@@ -130,6 +134,8 @@ class _CalculatorViewState extends State<CalculatorView> {
             CupertinoActionSheetAction(
               isDestructiveAction: true,
               onPressed: () {
+                CalculatorController().delete(element);
+
                 Navigator.pop(context, 'Deletar');
               },
               child: const Text('Deletar'),

@@ -9,8 +9,8 @@ class Utils {
   ///
   ///
   ///
-  static CupertinoNavigationBar get navigationBar =>
-      const CupertinoNavigationBar(
-        middle: Text('Calculadora de CO2'),
+  static CupertinoNavigationBar navigationBar({final String? title}) =>
+      CupertinoNavigationBar(
+        middle: Text(title ?? 'Calculadora de CO2'),
       );
 }

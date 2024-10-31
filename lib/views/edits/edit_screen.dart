@@ -32,7 +32,7 @@ class _EditScreenState extends State<EditScreen> {
   @override
   Widget build(final BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: Utils.navigationBar,
+      navigationBar: Utils.navigationBar(title: 'Adicionar emissão'),
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(

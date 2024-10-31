@@ -21,4 +21,13 @@ class CalculatorController {
       calculator.emissors.add(model);
     }
   }
+
+  ///
+  ///
+  ///
+  void delete(final AbstractEmissor model) {
+    try {
+      calculator.emissors.remove(model);
+    } catch (e) {}
+  }
 }

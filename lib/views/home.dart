@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: Utils.navigationBar,
+      navigationBar: Utils.navigationBar(),
       child: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
