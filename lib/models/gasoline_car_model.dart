@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 ///
 ///
 class GasolineCar with AbstractEmissor {
-  int quantity = 0;
   int kmPerLiter = 0;
   int monthKm = 0;
   final double emissionFactor = Config().gasolineCarEF;
@@ -21,7 +20,7 @@ class GasolineCar with AbstractEmissor {
   ///
   @override
   double calculate() {
-    return quantity * emissionFactor * (monthKm / kmPerLiter);
+    return emissionFactor * (monthKm / kmPerLiter);
   }
 
   ///
@@ -41,4 +40,7 @@ class GasolineCar with AbstractEmissor {
   ///
   @override
   String get description => 'Referência: 2.3 Kg de CO² por Litro';
+
+  @override
+  String toString() => '$name | $kmPerLiter | $monthKm';
 }

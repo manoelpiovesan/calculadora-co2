@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'Calculadora de CO2',
       debugShowCheckedModeBanner: false,
       theme: const CupertinoThemeData(
-        primaryColor: CupertinoColors.systemBlue,
+        primaryColor: CupertinoColors.systemGreen,
         brightness: Brightness.light,
       ),
       home: CalculatorView(),

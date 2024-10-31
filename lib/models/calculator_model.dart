@@ -23,7 +23,7 @@ class Calculator {
   ///
   ///
   ///
-  double getSum() {
+  double get sum {
     double sum = 0;
 
     for (final AbstractEmissor emissor in emissors) {

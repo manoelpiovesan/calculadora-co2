@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 ///
 ///
 class EthanolCar with AbstractEmissor {
-  int quantity = 0;
   int kmPerLiter = 0;
   int monthKm = 0;
   final double emissionFactor =
@@ -22,7 +21,7 @@ class EthanolCar with AbstractEmissor {
   ///
   @override
   double calculate() {
-    return quantity * emissionFactor * (monthKm / kmPerLiter);
+    return emissionFactor * (monthKm / kmPerLiter);
   }
 
   ///
