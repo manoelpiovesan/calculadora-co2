@@ -39,7 +39,7 @@ class GasolineCar with AbstractEmissor {
   ///
   ///
   @override
-  String get description => 'Referência: 2.3 Kg/l';
+  String get description => 'Referência: ${Config().gasolineCarEF} Kg/l';
 
   @override
   String toString() => '$name | $kmPerLiter | $monthKm';

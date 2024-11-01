@@ -40,5 +40,5 @@ class EthanolCar with AbstractEmissor {
   ///
   ///
   @override
-  String get description => 'Referência: 1.6 Kg/l';
+  String get description => 'Referência: ${Config().ethanolCarEF} Kg/l';
 }

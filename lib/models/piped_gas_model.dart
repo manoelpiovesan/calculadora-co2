@@ -38,5 +38,6 @@ class PipedGas with AbstractEmissor {
   ///
   ///
   @override
-  String get description => r'Referência: 2.16 Kg/m³ | R$9,23/m³';
+  String get description =>
+      'Referência: ${Config().pipedGasEF} Kg/m³ | R\$${Config().pipedGasPrice}/m³';
 }

@@ -39,5 +39,6 @@ class ElectricityUsage with AbstractEmissor {
   ///
   ///
   @override
-  String get description => r'Referência: 0.1 Kg/KWh | R$ 0,74/KWh';
+  String get description =>
+      'Referência: ${Config().electricityEF} Kg/KWh | R\$${Config().electricityKwhPrice}/KWh';
 }

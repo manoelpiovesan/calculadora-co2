@@ -120,7 +120,9 @@ class _CalculatorViewState extends State<CalculatorView> {
   ///
   ///
   Future<void> _showModal(
-          final BuildContext context, final AbstractEmissor element) =>
+    final BuildContext context,
+    final AbstractEmissor element,
+  ) =>
       showCupertinoModalPopup<String>(
         context: context,
         builder: (final BuildContext context) => CupertinoActionSheet(
