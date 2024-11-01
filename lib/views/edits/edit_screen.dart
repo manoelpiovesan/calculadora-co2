@@ -2,6 +2,8 @@ import 'package:calculadoraco2/utils/utils.dart';
 import 'package:calculadoraco2/views/edits/electricity_usage_edit_widget.dart';
 import 'package:calculadoraco2/views/edits/ethanol_car_edit_widget.dart';
 import 'package:calculadoraco2/views/edits/gasoline_car_edit_widget.dart';
+import 'package:calculadoraco2/views/edits/glp_gas_edit_widget.dart';
+import 'package:calculadoraco2/views/edits/piped_gas_edit_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +25,8 @@ class _EditScreenState extends State<EditScreen> {
     const GasolineCarEdit(),
     const EthanolCarEdit(),
     const ElectricityUsageEdit(),
+    const PipedGasEdit(),
+    const GlpGasEdit(),
   ];
   int indexOfEdit = 0;
 
@@ -77,6 +81,18 @@ class _EditScreenState extends State<EditScreen> {
               Navigator.pop(context, 2);
             },
             child: const Text('Energia Elétrica Residencial'),
+          ),
+          CupertinoActionSheetAction(
+            onPressed: () {
+              Navigator.pop(context, 3);
+            },
+            child: const Text('Gás Encanado'),
+          ),
+          CupertinoActionSheetAction(
+            onPressed: () {
+              Navigator.pop(context, 4);
+            },
+            child: const Text('Gás GLP (Botijão)'),
           ),
         ],
       ),

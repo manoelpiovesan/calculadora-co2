@@ -40,5 +40,5 @@ class EthanolCar with AbstractEmissor {
   ///
   ///
   @override
-  String get description => 'Referência: 1.6 Kg de CO² por Litro';
+  String get description => 'Referência: 1.6 Kg/l';
 }

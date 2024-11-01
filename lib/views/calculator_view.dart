@@ -2,6 +2,7 @@ import 'package:calculadoraco2/controllers/calculator_controller.dart';
 import 'package:calculadoraco2/models/abstract_emissor_model.dart';
 import 'package:calculadoraco2/models/calculator_model.dart';
 import 'package:calculadoraco2/utils/utils.dart';
+import 'package:calculadoraco2/views/config_view.dart';
 import 'package:calculadoraco2/views/edits/edit_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _CalculatorViewState extends State<CalculatorView> {
           title: const Text('Total'),
           additionalInfo: const Text('Aproximadamente'),
           trailing: Text('${widget.calculator.sum.toStringAsFixed(2)}'
-              ' Kg de CO²'),
+              ' Kg de CO² por mês'),
         ),
       );
 
@@ -70,7 +71,7 @@ class _CalculatorViewState extends State<CalculatorView> {
                 children: <Widget>[
                   /// Settings
                   CupertinoButton(
-                    onPressed: () => _navigateToAddScreen,
+                    onPressed: () => _navigateToSettings,
                     child: const Text('Configurações'),
                   ),
 
@@ -107,7 +108,7 @@ class _CalculatorViewState extends State<CalculatorView> {
                       ),
                     ],
                   ),
-                )
+                ),
             ],
           ),
         ),
@@ -118,7 +119,8 @@ class _CalculatorViewState extends State<CalculatorView> {
   ///
   ///
   ///
-  Future<void> _showModal(final BuildContext context, final AbstractEmissor element) =>
+  Future<void> _showModal(
+          final BuildContext context, final AbstractEmissor element) =>
       showCupertinoModalPopup<String>(
         context: context,
         builder: (final BuildContext context) => CupertinoActionSheet(
@@ -151,6 +153,19 @@ class _CalculatorViewState extends State<CalculatorView> {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (final BuildContext context) => const EditScreen(),
+      ),
+    );
+
+    setState(() {});
+  }
+
+  ///
+  ///
+  ///
+  Future<void> get _navigateToSettings async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (final BuildContext context) => const ConfigView(),
       ),
     );
 

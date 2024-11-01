@@ -39,5 +39,5 @@ class ElectricityUsage with AbstractEmissor {
   ///
   ///
   @override
-  String get description => r'Referência: 0.1 Kg de CO² por KWh | R$ 0,74/KWh';
+  String get description => r'Referência: 0.1 Kg/KWh | R$ 0,74/KWh';
 }
